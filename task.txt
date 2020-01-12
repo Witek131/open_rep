@@ -1,181 +1,150 @@
-Form a Story
-Forms are great for collecting information on users, like job applications or insightful surveys. 
-However, we can also stretch our creative muscles and have a little fun with forms. 
-For this project, we’ll use our knowledge of the HTML <form> and grab user input to put a spin on a classic story!
+New York City Blog
+After researching New York City, you decide to create a blog for your viewers who want to know more about the city. 
+It’s time to create a blog to show off how amazing the Big Apple is. You got this!
 
 1.
-We’ll be collecting information from our users using a <form> so, 
-first, we have to add a <form> under the <hr> element inside the <body> of index.html.
+A common usage of a navigation bar is to create shortcuts for a webpage. 
+This will allow the user to go directly to the information they want to access through the navigation links.
+
+Create a <nav> element underneath the opening <body> tag
 
 2.
-Assign the <form> an action of "story.html" and a method of "GET".
+Within the <nav> element, create a <ul> element to create an unordered list.
 
-We’ll be sending information from our form to story.html using a GET request.
+The unordered list should contain the following three items:
+
+Blog
+Media
+About
+
+Use an <li> element with <a href=""></a> nested within the <li> element to link the content to the nav bar. 
+You may notice that the navbar doesn’t work right now but don’t worry, once the content is added, 
+the navbar will be fully functional!
 
 3.
-In the <form>, create a submit button by adding an <input> with a type of "submit". 
-Assign the value a value of "Form My Story!". Save your code to see the button rendered.
+You need to title your blog, so people know what you’re writing about. 
+Create a <header> element under the closing </nav> tag.
+
+Within the <header> element, create an <h1> element which should contain the following: New York City
 
 4.
-Now we can populate our <form> with <input> elements that allow users to type in their responses. 
-We’ll also want to have associated <label>s with these <input> elements so users know what they’re filling in.
+Create a <main> element below the closing </header> tag.
 
-Add a <label> element and assign the for attribute a value of "animal-1". Have the <label> render the text Animal: on the webpage.
+Within the <main> element, create a <section> element with an id of “blog”.
 
-Write your code so that the submit button always shows up at the bottom of the <form>. 
-As you add more code, the submit button should be kept at the bottom.
+This <section> element will hold the main content of your webpage. 
+You are giving this element an id so that you can target it with the nav bar.
 
 5.
-Now we can create an <input> to associate our <label> element with.
+Create an <article> element within the <section> element.
 
-Set the id of the <input> to "animal-1" and the type to "text". Assign the name to "animal-1". Remember, the name attribute is needed for information from this <input> to be sent with the form during submission.
+Then, create a <p> element within <article> that has the following:
 
-Speaking of submission, since we want our users to put in some value, add the required attribute to the <input>.
+New York City is made up of five boroughs which include Queens, Manhattan, Brooklyn, the Bronx, and Staten Island. 
+The city is the home of approximately 8 million people. In 1876, France gifted the City of New York what is known 
+as the Statue of Liberty, which is currently located on Ellis Island commonly visited by tourists. 
+However, it took 10 years to assemble and therefore wasn’t unveiled until 1886. Another tourist destination is Times Square. 
+Times Square is commonly known for the big buildings, Broadway shows, and bright neon signs. 
+This famous location was named after The New York Times after the Times moved to that location. 
+Prior to that, it was named Longacre Square. New York City is also known for its bridges that connect the boroughs 
+and allow ease of transportation.
 
 6.
-We’re going to be adding more <label>s and <input>s so we should add some spacing.
+Now that our blog has some content, the next step is adding media to enhance our blog.
 
-Below the <input> element, add a line break using <br>.
-
-With the first input field and working submit button, type some text into the field and submit it! 
-Remember, in order for you to see the new code rendered on the browser, you’re going to need to save your code.
+You can do this by using the <figure> element. Under the closing </section> tag create a <figure> element.
 
 7.
-Our story has quite a few blanks, so we’re going to need a lot more <label>s and <input>s.
+Create an <img> tag within <figure> and use the following link as the src:
 
-Add another <label> with a for attribute of "animal-2" that renders Another Animal: to the webpage.
-
-Underneath the <label>, create a new <input> with the attributes:
-
-id and name set to "animal-2".
-type to "text".
-required
-Add another <br> for a line break.
+https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/statue-of-liberty.jpeg
 
 8.
-There’s another animal in our story, so let’s add another <label> with a for attribute of "animal-3" that renders One More Animal: to the webpage.
+Let’s describe the image for those who don’t know what statue this is!
 
-Then, add a new <input> with the attributes:
+Using <figcaption> add this description of the image:
 
-id and name set to "animal-3".
-type to "text".
-required
-Remember to add another <br> for a line break.
+This is the Statue of Liberty, a popular tourist attraction located on Ellis Island.
 
 9.
-Let’s have our users provide an adjective.
+For our blog post, you need to add additional content to enhance the post, you can do this by using the <aside> element.
 
-Add another <label> with a for attribute of "adj-1" that renders the text Adjective (past tense): to the webpage.
+Under the closing </figure> tag create an <aside> element.
 
-Then, add a new <input> with the attributes:
+Within <aside>, create a <p> element containing the following information:
 
-id and name set to "adj-1".
-type to "text".
-required
-Add another line break.
+New York City is very popular for the variety of great food it has. Some of the top food items in NYC include:
 
 10.
-Let’s get a verb.
+New York is known for its amazing food. Our blog should list some of the top food options in NYC. 
+You can do this by creating an ordered list!
 
-Create a <label> with has a for attribute set to "verb-1" that renders the text Verb (ends in -ing):.
+Create an ordered list by using the <ol> element within the <aside> element. 
+In an ordered list the first item is ranked one, the second item is ranked two and so on.
 
-Follow the <label> with an <input> with the attributes:
+The ordered list should contain the following seven items in this order:
 
-id and name set to "verb-1".
-type to "text".
-required
-Also, add a line break.
+Pizza
+Bagels
+Burgers and Sandwiches
+Ramen
+Tacos
+Pasta
+Desserts
 
 11.
-Great, we have some <input>s set up that accept text, but we can use some <input> with different types in our <form>.
+Right now our blog post consists of only one image. Adding more media can help give a better visual representation of New York. 
+Let’s create a section for the media content.
 
-Let’s add a field that will accept a number. First add <label> with a for attribute of "num-1"that renders the text Number: to the webpage.
+Create a <section> element with an id of “media” under the closing </aside> tag.
 
-After the <label> element, add an <input> that has:
+Within the new <section> element, create an <article> element.
 
-id and name set to "num-1".
-a type attribute of "number".
-a required attribute.
-Also, add a line break.
+Then, create an <h2> element within <article> that says:
+
+The Scenery in NYC
 
 12.
-One of our blanks requires a “yes” or “no” answer— sounds like we can use some radio buttons for that.
+You are going to add a little description to explain the media. Add a <p> element directly underneath 
+the closing </h2> tag but within the <article> element with the following paragraph:
 
-Before we can add the radio buttons, add a <span> element that has the text Yes or No:.
+While the view in the city is beautiful, the sounds are not as lovely. 
+Below you'll see an example of the view and the sounds you'll deal with in NYC on a daily basis.
 
 13.
-For radio buttons, we want to add the <input> before the <label> to render the radio button on the left of the text.
+New York City has a beautiful skyline, so let’s show that with a video.
 
-Add an <input> element with the following attributes:
+Under the closing </article> tag, create a <video> element with the attribute controls. Use the following URL as the src:
 
-an id set to "yes".
-a type with a value of "radio".
-a name of "answer".
-a value of "yes".
-a required attribute.
-Under the <input>, add a <label> with a for attribute assigned a value of "yes" that renders the text Yes on the webpage.
+https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/nyc-skyline-timelapse.mp4
 
 14.
-We should now add a radio button that represents the “no” choice.
+During the night time, the New York City skyline can light up the whole sky! 
+This time you are going to use <embed> to display an image of the skyline.
 
-Add another <input> element that has the following attributes:
+Create an <embed> element under the closing </video> tag. Use the following URL as the src:
 
-an id set to "no".
-a type with a value of "radio".
-a name of "answer".
-a value of "no".
-Under the just added <input>, add another <label> with a for attribute assigned a value of "no" that renders the text No on the webpage.
-
-This time, add a line break!
+https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/nyc-skyline.jpeg\
 
 15.
-The story that we’re creating this <form> for involves some sort of speed, so let’s give our users a dropdown list of speed options.
+New York City is known as “the city that never sleeps.” At any point in the day, you can hear 
+the traffic as you make your way through the city. Let’s add an audio clip to show how loud NYC can be.
 
-Create a <label> and set the for attribute to "speed". The <label> should render the text: Relative speed (ends in -er):
+Create an <audio> tag with the attribute controls directly below the <embed> element. 
 
-Then add a <select> element with an id and name of "speed". Add the required attribute to make this field mandatory.
-
-Insert a <br> after the closing <select> tag. The <select> element will be empty for now.
+https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/nyc-sounds.mov
 
 16.
-Inside the <select> add a few <option>s for users to choose from.
+At the bottom of a page, you can add a footer to credit you for the creation of this blog!
 
-One example of an <option> you could include is: <option value="faster">Faster</option>
+Create a <footer> element with an id of “about” under the closing </main> tag.
 
-Add as many or as few as you’d like!
+Inside, add the following content:
 
-Remember to assign a value and include text between the opening and closing <option> tags.
+A <p> tag with “Posted by:” followed by your name.
+A <p> tag that provides one type of contact information for people to reach you at. For example:
+Contact information: Blogger@NYC.com(Don’t forget the closing tag.)
 
-17.
-One of our story’s blank requires a quote. We could provide our users with a few options but also give them the 
-choice of adding their own custom quote. To do this, we can use the <datalist> element.
+Inside the <audio> tag, insert an audio file with the following URL as the src:
 
-To set up the <datalist> we need an accompanying <label> and <input>.
-
-Under the last <br>, add a <label> with a for attribute of "quote". Have the <label> render the text Motivational Quote:.
-
-After the <label>, add an <input> with the follow attributes:
-
-an id and name assigned a value of "quote".
-the type set to "text".
-a required attribute.
-a list attribute of "quote-choices".
-
-18.
-Awesome, we should add the <datalist> now under the <input> element. Assign the <datalist> an id of "quote-choices".
-
-Add a <br> after the closing <datalist> tag.
-
-19.
-Let’s add a few <option>s with values within the <datalist> element. For example:
-<option value="winner gets ice cream!"></option>
-
-20.
-Every good story has a key takeaway, so let’s finish off this <form> by having our users provide this message!
-
-Add a <label> that has a for attribute of "message". Have the <label> render Meaningful Message: on the web page.
-
-Under the <label> add a <textarea> that has an id and name of "message". Make the <textarea> a required field. 
-The <textarea> should have 8 rows and 40 columns. (Check the hint for a syntax reminder).
-
-Then add a line break after the <textarea> element.
+https://codecademy-content.s3.amazonaws.com/courses/Semantic+HTML/nyc-sounds.mov
