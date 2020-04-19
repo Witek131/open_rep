@@ -61,7 +61,9 @@ function draw()
   
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
 	
-    bY += 1;
+	ctx.drawImage(bird, bX, bY);
+
+	bY += 1;
     
     requestAnimationFrame(draw);
     
