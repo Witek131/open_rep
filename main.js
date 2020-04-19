@@ -22,11 +22,11 @@ var constant;
 var bX = 10;
 var bY = 150;
 
-document.addEventListener("keydown",moveUp);
+document.addEventListener("keydown", moveUp);
 
 function moveUp()
 {
-    bY -= 20;
+    bY -= 30;
 }
 
 var pipe = [];
@@ -36,16 +36,31 @@ pipe[0] = {
     y : 0
 };
 
-
 function draw()
 {
     
-    ctx.drawImage(bg, 0, 0);
+	ctx.drawImage(bg, 0, 0);
+	
+	for (var i = 0; i < pipe.length; i++)
+	{
+		constant = pipeNorth.height + gap;
 
-    ctx.drawImage(fg, 0, cvs.height - fg.height);
-    
-    ctx.drawImage(bird, bX, bY);
-    
+		ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
+		ctx.drawImage(pipeSouth, pipe[i].x, pipe[i].y + constant);
+
+		pipe[i].x--;
+
+		if (pipe[i].x == 130)
+		{
+			pipe.push({
+				x : cvs.width,
+				y : Math.floor(Math.random() * pipeNorth.height) - pipeNorth.height
+			})
+		} 
+	}
+  
+	ctx.drawImage(fg, 0, cvs.height - fg.height);
+	
     bY += 1;
     
     requestAnimationFrame(draw);
