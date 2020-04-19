@@ -1,19 +1,56 @@
-var doorImage1 = document.getElementById("door1");
-var doorImage2 = document.getElementById("door2");
-var doorImage3 = document.getElementById("door3");
+var cvs = document.getElementById("canvas");
+var ctx = cvs.getContext("2d");
 
-const botDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/robot.svg";
-const spaceDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/space.svg";
-const beachDoorPath = "https://s3.amazonaws.com/codecademy-content/projects/chore-door/images/beach.svg";
+// load images
 
-doorImage1.onclick = () => {
-	doorImage1.src = botDoorPath;
+var bird = new Image();
+var bg = new Image();
+var fg = new Image();
+var pipeNorth = new Image();
+var pipeSouth = new Image();
+
+bird.src = "images/bird.png";
+bg.src = "images/bg.png";
+fg.src = "images/fg.png";
+pipeNorth.src = "images/pipeNorth.png";
+pipeSouth.src = "images/pipeSouth.png";
+
+
+var gap = 85;
+var constant;
+
+var bX = 10;
+var bY = 150;
+
+document.addEventListener("keydown",moveUp);
+
+function moveUp()
+{
+    bY -= 20;
 }
 
-doorImage2.onclick = () => {
-	doorImage2.src = beachDoorPath;
+var pipe = [];
+
+pipe[0] = {
+    x : cvs.width,
+    y : 0
+};
+
+
+function draw()
+{
+    
+    ctx.drawImage(bg, 0, 0);
+
+    ctx.drawImage(fg, 0, cvs.height - fg.height);
+    
+    ctx.drawImage(bird, bX, bY);
+    
+    bY += 1;
+    
+    requestAnimationFrame(draw);
+    
 }
-doorImage3.onclick = () => {
-	doorImage3.src = spaceDoorPath;
-}
+
+draw();
 
