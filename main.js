@@ -1,8 +1,6 @@
 var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
 
-// load images
-
 var bird = new Image();
 var bg = new Image();
 var fg = new Image();
@@ -15,6 +13,11 @@ fg.src = "images/fg.png";
 pipeNorth.src = "images/pipeNorth.png";
 pipeSouth.src = "images/pipeSouth.png";
 
+var fly = new Audio();
+var score = new Audio();
+
+fly.src = "sounds/fly.mp3";
+score.src = "sounds/score.mp3";
 
 var gap = 85;
 var constant;
@@ -22,11 +25,15 @@ var constant;
 var bX = 10;
 var bY = 150;
 
+var points = 0;
+
 document.addEventListener("keydown", moveUp);
+document.addEventListener("click", moveUp);
 
 function moveUp()
 {
-    bY -= 30;
+	bY -= 30;
+	fly.play();
 }
 
 var pipe = [];
@@ -50,7 +57,7 @@ function draw()
 
 		pipe[i].x--;
 
-		if (pipe[i].x == 130)
+		if (pipe[i].x == 100)
 		{
 			pipe.push({
 				x : cvs.width,
@@ -58,21 +65,29 @@ function draw()
 			})
 		} 
 
-		/**************************************************** */
+		/*****************************************************/
 		if (bX + bird.width >= pipe[i].x && bX <= pipe[i].x + pipeNorth.width && (bY <= pipe[i].y + pipeNorth.height || bY + bird.height > pipe[i].y + constant) || bY + bird.height >= cvs.height - fg.height)
 		{
 			location.reload()
 		}
-		/**************************************************** */
+		/*****************************************************/
 
+		if (pipe[i].x == bX)
+		{
+			score.play();
+			points++;
+		}
 
 	}
   
 	ctx.drawImage(fg, 0, cvs.height - fg.height);
-	
 	ctx.drawImage(bird, bX, bY);
 
-	bY += 1;
+	ctx.fillStyle = "#0A0";
+	ctx.font = "20px Verdana";
+	ctx.fillText("Points: " + points, 100, cvs.height - 30);
+
+	bY += 1.5;
     
     requestAnimationFrame(draw);
     
