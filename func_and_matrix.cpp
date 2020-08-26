@@ -66,14 +66,16 @@ void print_matrix(int **double_ptr, int m, int n)
 	cout << endl;
 }
 
-int **init_matrix(int **double_ptr, int m, int n)
+int **init_matrix(int m, int n)
 {
+	int **double_ptr = NULL;
+
 	double_ptr = new int* [m];
 	for (int row = 0; row < m; ++row)
 	{
 		double_ptr[row] = new int [n];
 		for (int col = 0; col < n; ++col)
-			double_ptr[row][col] = rand(); // random
+			double_ptr[row][col] = rand() % 100; // random
 	}
 	return double_ptr;
 }
@@ -85,16 +87,39 @@ void delete_matrix(int **double_ptr, int m, int n)
 	delete [] double_ptr;
 }
 
+int **sum_matrix(int **first_m, int **second_m, int m, int n)
+{
+	int **res = NULL;
+	
+	res = init_matrix(m, n);
+	for (int i = 0; i < m; ++i)
+	{
+		for (int j = 0; j < n; ++j)
+			res[i][j] = first_m[i][j] + second_m[i][j];
+	}
+	return (res);
+}
+
 int main()
 {
+	int w = 5, h = 5;
+	int **matrix_1 = NULL;
+	int **matrix_2 = NULL;
+	int **matrix_sum = NULL;
+
 	srand(time(NULL)); // srand - seed rand
-	int w, h;
-	int **matrix = NULL;
-	cout << "Please, enter the size of the matrix" << endl;
-	cin >> h;
-	cin >> w;
-	matrix = init_matrix(matrix, h, w);
-	print_matrix(matrix, h, w);
-	delete_matrix(matrix, h, w);
+
+	matrix_1 = init_matrix(h, w);
+	matrix_2 = init_matrix(h, w);
+	print_matrix(matrix_1, h, w);
+	print_matrix(matrix_2, h, w);
+
+	matrix_sum = sum_matrix(matrix_1, matrix_2, h, w);
+	print_matrix(matrix_sum, w, h);
+
+	delete_matrix(matrix_1, h, w);
+	delete_matrix(matrix_2, h, w);
+	delete_matrix(matrix_sum, h, w);
+
 	return (0);
 }
